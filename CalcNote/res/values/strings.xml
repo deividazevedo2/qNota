@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">CalcNote</string>
+    <string name="app_name">qNota</string>
     <string name="bem_vindo">Bem Vindo!</string>
     <string name="menu_settings">Settings</string>
     <string name="description">Description</string>
@@ -12,11 +12,13 @@
     
     <string name="titulo_config">CONFIGURAÇÃO</string>
     <string name="quantidade">Quantidade de Avaliações</string>
-    <string name="uma">Quantidade de Avaliações</string>
-    <string name="duas">Quantidade de Avaliações</string>
-    <string name="três">Quantidade de Avaliações</string>
-    <string name="quatro">Quantidade de Avaliações</string>
+    <string name="uma">Uma nota</string>
+    <string name="duas">Duas notas</string>
+    <string name="tres">Três notas</string>
+    <string name="quatro">Quatro notas</string>
     <string name="media">Média Geral adotada</string>
+    <string name="sete">Média 7</string>
+    <string name="outra">Outra:</string>
     
     <string name="salvar">Salvar</string>
     <string name="voltar">Voltar</string>

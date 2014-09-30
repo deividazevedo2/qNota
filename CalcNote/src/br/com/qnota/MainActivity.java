@@ -1,30 +1,28 @@
 package br.com.qnota;
 
-import br.com.calcnote.R;
-import br.com.calcnote.R.id;
-import br.com.qnota.MainActivity;
-import br.com.qnota.Registro;
-import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
+import br.com.qnota.R;
 
 public class MainActivity extends Activity {
 
 	Registro objRegistro, regAuxiliar, ultimoRegistro, primeiroRegistro;
-	EditText etPacienteNome, etPacienteEndereco, etPacienteTelefone,
-			etPacienteCpf, etMedicoNome, etMedicoCrm, etMedicoEspecialidade,
-			etMedicamentoNome, etMedicamentoCodigo;
-	int contadorRegistros = 0, posicao = 0;
-	Button btCadastro, btConsulta, btConsultaVoltar, btProxReg, btRegAnt,
+	EditText etOutra;
+	int contadorRegistros = 0, posicao = 0, media, quantidadeNotas;
+	boolean radio;
+	RadioButton rbUma, rbDuas, rbTres, rbQuatro, rbMediaSete, srMediaOutra;
+	Button btCalcular, btConfigurar, btConsultaVoltar, btProxReg, btRegAnt,
 			btCadastroVoltar, btPacienteGravar, btPacienteVoltar,
 			btMedicoGravar, btMedicoVoltar, btMedicamentoGravar,
 			btMedicamentoVoltar, btSobre, btOk, btCadastroPaciente,
@@ -44,15 +42,33 @@ public class MainActivity extends Activity {
 	}
 
 	private void gravarRegistro() {
+		capturaRadioButtonSelecionado();
 		try {
-			String sql = "INSERT INTO pessoas (nome, endereco, telefone) VALUES ('"
-					+ etPacienteNome.getText().toString()
+			String sql = "INSERT INTO medias (quantidadeNotas, media) VALUES ('"
+					+ etOutra.getText().toString()
 					+ "','"
-					+ etPacienteEndereco.getText().toString()
-					+ "','"
-					+ etPacienteTelefone.getText().toString() + "')";
+					+ rbUma.getText().toString() + "')";
 			bancoDados.execSQL(sql);
 		} catch (Exception ex) {
+		}
+	}
+
+	private void capturaRadioButtonSelecionado() {
+		radio = rbUma.isSelected();
+		if (radio == true) {
+			quantidadeNotas = 1;
+		}
+		radio = rbDuas.isSelected();
+		if (radio == true) {
+			quantidadeNotas = 2;
+		}
+		radio = rbTres.isSelected();
+		if (radio == true) {
+			quantidadeNotas = 3;
+		}
+		radio = rbQuatro.isSelected();
+		if (radio == true) {
+			quantidadeNotas = 4;
 		}
 	}
 
@@ -111,14 +127,6 @@ public class MainActivity extends Activity {
 
 	}
 
-	public void mostrarDados() {
-
-		tvNome.setText(cursor.getString(cursor.getColumnIndex("nome")));
-		tvEndereco.setText(cursor.getString(cursor.getColumnIndex("endereco")));
-		tvTelefone.setText(cursor.getString(cursor.getColumnIndex("telefone")));
-
-	}
-
 	public void chamaMenuPrincipal() {
 		setContentView(R.layout.activity_main);
 		inicializaObjetos();
@@ -129,18 +137,18 @@ public class MainActivity extends Activity {
 	private void inicializaObjetos() {
 		try {
 			// OBJETOS DA TELA INICIAL
-			btCadastro = (Button) findViewById(R.id.btCalcular);
-			btConsulta = (Button) findViewById(R.id.btConfigurar);
+			btCalcular = (Button) findViewById(R.id.btCalcular);
+			btConfigurar = (Button) findViewById(R.id.btConfigurar);
 			btSobre = (Button) findViewById(R.id.btSobre);
 		} catch (Exception erro) {
 
 		}
 		try {
-			// OBJETOS DA TELA DE CONSULTA
-			// tvNome = (TextView) findViewById(R.id.tvNome);
-			// tvEndereco = (TextView) findViewById(R.id.tvEndereco);
-			// tvTelefone = (TextView) findViewById(R.id.tvTelefone);
-			//
+			// OBJETOS DA TELA DE CONFIGURAR
+			rbUma = (RadioButton) findViewById(R.id.rbUma);
+			rbDuas = (RadioButton) findViewById(R.id.rbDuas);
+			rbTres = (RadioButton) findViewById(R.id.rbTres);
+			rbQuatro = (RadioButton) findViewById(R.id.rbQuatro);
 			// btConsultaVoltar = (Button) findViewById(R.id.btConsultaVoltar);
 			// btProxReg = (Button) findViewById(R.id.btProxReg);
 			// btRegAnt = (Button) findViewById(R.id.btRegAnt);
@@ -189,7 +197,7 @@ public class MainActivity extends Activity {
 
 	private void listeners() {
 		try {
-			btCadastro.setOnClickListener(new View.OnClickListener() {
+			btCalcular.setOnClickListener(new View.OnClickListener() {
 
 				@Override
 				public void onClick(View arg0) {
@@ -198,7 +206,7 @@ public class MainActivity extends Activity {
 				}
 			});
 
-			btConsulta.setOnClickListener(new View.OnClickListener() {
+			btConfigurar.setOnClickListener(new View.OnClickListener() {
 
 				@Override
 				public void onClick(View arg0) {
@@ -286,10 +294,10 @@ public class MainActivity extends Activity {
 					try {
 						gravarRegistro();
 						mensagem("AVISO BANCO", "Dados gravados com sucesso!");
-						etPacienteNome.setText(null);
-						etPacienteEndereco.setText(null);
-						etPacienteTelefone.setText(null);
-						etPacienteNome.requestFocus();
+						// etPacienteNome.setText(null);
+						// etPacienteEndereco.setText(null);
+						// etPacienteTelefone.setText(null);
+						// etPacienteNome.requestFocus();
 					} catch (Exception ex) {
 						mensagem(
 								"ERRO BANCO",

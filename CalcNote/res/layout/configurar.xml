@@ -1,0 +1,111 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background2" >
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".MainActivity" >
+
+        <TextView
+            android:id="@+id/tvTituloConfig"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/titulo_config"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/tvQuantidade"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="@string/quantidade"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <RadioButton
+            android:id="@+id/rbUma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/uma" />
+
+        <RadioButton
+            android:id="@+id/rbDuas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/duas" />
+
+        <RadioButton
+            android:id="@+id/rbTres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/tres" />
+
+        <RadioButton
+            android:id="@+id/rbQuatro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/quatro" />
+
+        <TextView
+            android:id="@+id/tvMedia"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="@string/media"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <RadioButton
+            android:id="@+id/rbMediaSete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/sete" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <RadioButton
+                android:id="@+id/rbMediaOutra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/outra" />
+
+            <EditText
+                android:id="@+id/etOutra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/rbMediaOutra"
+                android:ems="1"
+                android:inputType="number" >
+
+                <requestFocus android:layout_width="wrap_content" />
+            </EditText>
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btConfigSalvar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/salvar" />
+
+        <Button
+            android:id="@+id/btConfigVoltar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/voltar" />
+    </LinearLayout>
+
+</ScrollView>
