@@ -2,7 +2,24 @@
 <resources>
 
     <string name="app_name">CalcNote</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="bem_vindo">Bem Vindo!</string>
     <string name="menu_settings">Settings</string>
+    <string name="description">Description</string>
+    
+    <string name="calcular">Calcular</string>
+    <string name="config">Configurar</string>
+    <string name="sobre">qNota</string>
+    
+    <string name="titulo_config">CONFIGURAÇÃO</string>
+    <string name="quantidade">Quantidade de Avaliações</string>
+    <string name="uma">Quantidade de Avaliações</string>
+    <string name="duas">Quantidade de Avaliações</string>
+    <string name="três">Quantidade de Avaliações</string>
+    <string name="quatro">Quantidade de Avaliações</string>
+    <string name="media">Média Geral adotada</string>
+    
+    <string name="salvar">Salvar</string>
+    <string name="voltar">Voltar</string>
+    <string name="ok">OK</string>
 
 </resources>
