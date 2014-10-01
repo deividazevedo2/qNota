@@ -29,7 +29,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <RadioGroup
-            android:id="@+id/radioGroup1"
+            android:id="@+id/rgQuantidadeNotas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
@@ -68,35 +68,35 @@
             android:text="@string/media"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <RadioButton
-            android:id="@+id/rbMediaSete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/sete" />
-
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
-            <RadioButton
-                android:id="@+id/rbMediaOutra"
+            <RadioGroup
+                android:id="@+id/rgMediaGeralAdotada"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:text="@string/outra" />
+                android:layout_height="wrap_content" >
 
-            <EditText
-                android:id="@+id/etOutra"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/rbMediaOutra"
-                android:ems="1"
-                android:inputType="number" >
+                <RadioButton
+                    android:id="@+id/rbMediaSete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/sete" />
 
-                <requestFocus android:layout_width="wrap_content" />
-            </EditText>
+                <RadioButton
+                    android:id="@+id/rbMediaOutra"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/outra" />
+
+                <EditText
+                    android:id="@+id/etOutra"
+                    android:layout_width="115dp"
+                    android:layout_height="wrap_content"
+                    android:ems="1"
+                    android:inputType="number" />
+            </RadioGroup>
         </RelativeLayout>
 
         <Button
