@@ -193,8 +193,8 @@ public class MainActivity extends Activity {
 
 				@Override
 				public void onClick(View arg0) {
-					mensagem("Configura��es Salvas",
-							"Suas configura��es foram Salvas com sucesso!");
+					mensagem("Configurações Salvas",
+							"Suas configurações foram Salvas com sucesso!");
 					chamaTelaInicial();
 
 				}
