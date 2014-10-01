@@ -30,8 +30,8 @@ public class MainActivity extends Activity {
 	}
 
 	/**
-	 * MÈtodo que chama a tela inicial, inicializa os objetos desta tela e as
-	 * capturas de botıes.
+	 * M√©todo que chama a tela inicial, inicializa os objetos desta tela e as
+	 * capturas de bot√µes.
 	 */
 	private void chamaTelaInicial() {
 		setContentView(R.layout.activity_main);
@@ -40,8 +40,8 @@ public class MainActivity extends Activity {
 	}
 
 	/**
-	 * MÈtodo que chama a tela configurar, inicializa os objetos desta tela e as
-	 * capturas de botıes.
+	 * M√©todo que chama a tela configurar, inicializa os objetos desta tela e as
+	 * capturas de bot√µes.
 	 */
 	private void chamaTelaConfigurar() {
 		setContentView(R.layout.configurar);
@@ -51,11 +51,11 @@ public class MainActivity extends Activity {
 	}
 
 	/**
-	 * Neste mÈtodo todos os objetos s„o inicializados de acordo com a tela a
-	 * qual pertencem. … importante perceber que os botıes referentes a tela
-	 * inicial est„o dentro de um trycatch. Os objetos das outras telas est„o
-	 * dentro de outro trycatch. … assim que deve continuar: cada tela e seus
-	 * respectivos botıes devem estar em trycatch diferentes de outras telas.
+	 * Neste m√©todo todos os objetos s√£o inicializados de acordo com a tela a
+	 * qual pertencem. √â importante perceber que os bot√µes referentes a tela
+	 * inicial est√£o dentro de um trycatch. Os objetos das outras telas est√£o
+	 * dentro de outro trycatch. √â assim que deve continuar: cada tela e seus
+	 * respectivos bot√µes devem estar em trycatch diferentes de outras telas.
 	 */
 	private void inicializaObjetos() {
 
@@ -68,7 +68,7 @@ public class MainActivity extends Activity {
 
 		}
 		try {
-			// INICIALIZA OBJETOS DA TELA CONFIGURA«√O
+			// INICIALIZA OBJETOS DA TELA CONFIGURAÔøΩÔøΩO
 			tvTituloConfig = (TextView) findViewById(R.id.tvTituloConfig);
 			tvQuantidade = (TextView) findViewById(R.id.tvQuantidade);
 			rgNotas = (RadioGroup) findViewById(R.id.rgQuantidadeNotas);
@@ -93,7 +93,7 @@ public class MainActivity extends Activity {
 	}
 
 	/**
-	 * MÈtodo que recebe a configuraÁ„o do usu·rio para a quantidade de notas a
+	 * M√©todo que recebe a configura√ß√£o do usu√°rio para a quantidade de notas a
 	 * partir da interface.
 	 */
 	private void quantidadeDeNotas() {
@@ -115,7 +115,7 @@ public class MainActivity extends Activity {
 	}
 
 	/**
-	 * MÈtodo que captura a mÈdia Geral Adotada que o usu·rio est· configurando
+	 * M√©todo que captura a m√©dia Geral Adotada que o usu√°rio est√° configurando
 	 * neste momento.
 	 */
 	private void mediaGeralAdotada() {
@@ -140,15 +140,15 @@ public class MainActivity extends Activity {
 	}
 
 	/**
-	 * MÈtodo utilizado para exibir caixa de di·logo com mensagens para o
-	 * usu·rio. … necess·rio passar como par‚metro o tÌtulo e a mensagem em si.
-	 * Esta caixa de di·logo apresentar· as informaÁıes e um bot„o "OK" apenas
-	 * para o usu·rio clicar e ela desaparecer.
+	 * M√©todo utilizado para exibir caixa de di√°logo com mensagens para o
+	 * usu√°rio. √â necess√°rio passar como par√¢metro o t√≠tulo e a mensagem em si.
+	 * Esta caixa de di√°logo apresentar√° as informa√ß√µes e um bot√£o "OK" apenas
+	 * para o usu√°rio clicar e ela desaparecer.
 	 * 
 	 * @param titulo
-	 *            da caixa de di·logo
+	 *            da caixa de di√°logo
 	 * @param msg
-	 *            que ir· ser exibida ao usu·rio
+	 *            que ir√° ser exibida ao usu√°rio
 	 */
 	private void mensagem(String titulo, String msg) {
 		AlertDialog.Builder mensagem = new AlertDialog.Builder(
@@ -161,10 +161,10 @@ public class MainActivity extends Activity {
 	}
 
 	/**
-	 * MÈtodo que realiza todas as capturas dos botıes do aplicativo. …
-	 * necess·rio que os botıes de cada tela fiquem dentro de um try catch, caso
-	 * contr·rio n„o È executado este mÈtodo. Botıes de uma tela podem ficar
-	 * dentro de apenas um trycatch. Botıes de telas diferentes devem ficar em
+	 * M√©todo que realiza todas as capturas dos bot√µes do aplicativo. √â
+	 * necess√°rio que os bot√µes de cada tela fiquem dentro de um try catch, caso
+	 * contr√°rio n√£o √© executado este m√©todo. Bot√µes de uma tela podem ficar
+	 * dentro de apenas um trycatch. Bot√µes de telas diferentes devem ficar em
 	 * trycatch's diferentes.
 	 */
 	private void listeners() {
@@ -193,8 +193,8 @@ public class MainActivity extends Activity {
 
 				@Override
 				public void onClick(View arg0) {
-					mensagem("ConfiguraÁıes Salvas",
-							"Suas configuraÁıes foram Salvas com sucesso!");
+					mensagem("ConfiguraÔøΩÔøΩes Salvas",
+							"Suas configuraÔøΩÔøΩes foram Salvas com sucesso!");
 					chamaTelaInicial();
 
 				}
