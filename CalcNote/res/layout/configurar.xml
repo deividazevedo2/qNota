@@ -28,30 +28,36 @@
             android:text="@string/quantidade"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <RadioButton
-            android:id="@+id/rbUma"
+        <RadioGroup
+            android:id="@+id/radioGroup1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/uma" />
+            android:layout_height="wrap_content" >
 
-        <RadioButton
-            android:id="@+id/rbDuas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/duas" />
+            <RadioButton
+                android:id="@+id/rbUma"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/uma" />
 
-        <RadioButton
-            android:id="@+id/rbTres"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/tres" />
+            <RadioButton
+                android:id="@+id/rbDuas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/duas" />
 
-        <RadioButton
-            android:id="@+id/rbQuatro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/quatro" />
+            <RadioButton
+                android:id="@+id/rbTres"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/tres" />
+
+            <RadioButton
+                android:id="@+id/rbQuatro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/quatro" />
+        </RadioGroup>
 
         <TextView
             android:id="@+id/tvMedia"

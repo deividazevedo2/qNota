@@ -1,48 +1,50 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    tools:context=".MainActivity" >
+    android:background="@drawable/background" >
 
-    <ImageView
-        android:id="@+foto/logoCalcNote"
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="30dp"
-        android:contentDescription="@string/description"
-        android:src="@drawable/logomarca" />
-
-    <ImageButton
-        android:id="@+id/btCalcular"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+foto/logoCalcNote"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:contentDescription="@string/description"
-        android:src="@drawable/btcalcular" />
+        tools:context=".MainActivity" >
 
-    <ImageButton
-        android:id="@+id/btConfigurar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btCalcular"
-        android:layout_below="@+id/btCalcular"
-        android:layout_marginTop="10dp"
-        android:contentDescription="@string/description"
-        android:src="@drawable/btconfigurar" />
+        <ImageView
+            android:id="@+foto/logoCalcNote"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/logomarca" />
 
-    <ImageButton
-        android:id="@+id/btSobre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btConfigurar"
-        android:layout_below="@+id/btConfigurar"
-        android:layout_marginTop="10dp"
-        android:contentDescription="@string/description"
-        android:src="@drawable/btqnota" />
+        <ImageButton
+            android:id="@+id/btCalcular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+foto/logoCalcNote"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/btcalcular" />
 
-</RelativeLayout>
+        <ImageButton
+            android:id="@+id/btConfigurar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/btCalcular"
+            android:layout_below="@+id/btCalcular"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/btconfigurar" />
+
+        <ImageButton
+            android:id="@+id/btSobre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/btConfigurar"
+            android:layout_below="@+id/btConfigurar"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/btqnota" />
+    </RelativeLayout>
+
+</ScrollView>
