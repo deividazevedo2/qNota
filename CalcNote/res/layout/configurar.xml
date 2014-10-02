@@ -89,29 +89,36 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/outra" />
-
-                <EditText
-                    android:id="@+id/etOutra"
-                    android:layout_width="115dp"
-                    android:layout_height="wrap_content"
-                    android:ems="1"
-                    android:inputType="number" />
             </RadioGroup>
         </RelativeLayout>
 
-        <Button
-            android:id="@+id/btConfigSalvar"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/etOutra"
+            android:layout_width="115dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/salvar" />
+            android:layout_gravity="center"
+            android:inputType="number"
+            android:hint="@string/digite"
+            android:maxLength="1" />
 
-        <Button
-            android:id="@+id/btConfigVoltar"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/voltar" />
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/btConfigSalvar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/salvar" />
+
+            <Button
+                android:id="@+id/btConfigVoltar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/voltar" />
+
+        </LinearLayout>
     </LinearLayout>
 
 </ScrollView>
