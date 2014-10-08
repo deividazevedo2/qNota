@@ -1,33 +1,31 @@
 package br.com.qnota;
 
-import android.annotation.SuppressLint;
+import java.text.DecimalFormat;
+
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
-@SuppressLint("NewApi")
 public class MainActivity extends Activity {
 
-	TextView tvQuantidade, tvMediaGeral, tvTituloConfig, tvTituloSobre,
-			tvDescricao, tvComoConfigurar, tvQuantidadeSobre,
-			tvDescricaoConfiguracao, tvObterResult, tvDescricaoResult;
-	EditText etMediaOutra;
-	RadioGroup rgNotas, rgMediaGeralAdotada;
-	int quantidadeDeNotas, mediaGeral;
-	RadioButton rbUma, rbDuas, rbTres, rbQuatro, rbMediaSete, rbMediaOutra;
-	ImageButton btCalcular, btConfigurar, btSobre;
-	Button btConfigVoltar, btConfigSalvar, btSobreVoltar;
+	TextView tvInformeMedia, tvTituloCalcular, tvTituloSobre, tvDescricao,
+			tvObservacao, tvConheca, tvDescricaoResult, tvTituloResultado,
+			tvSeuResultado, tvValorResultado, tvNaFinal;
+	EditText etDigiteMedia;
+	ImageButton btCalcular, btSobre, btSair, btCalcCalc, btSobreVoltar,
+			btNovoCalculo, btVoltar;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		chamaTelaInicial();
 	}
 
@@ -45,8 +43,8 @@ public class MainActivity extends Activity {
 	 * Método que chama a tela configurar, inicializa os objetos desta tela e as
 	 * capturas de botões.
 	 */
-	private void chamaTelaConfigurar() {
-		setContentView(R.layout.configurar);
+	private void chamaTelaCalcular() {
+		setContentView(R.layout.calcular);
 		inicializaObjetos();
 		listeners();
 
@@ -58,6 +56,26 @@ public class MainActivity extends Activity {
 	 */
 	private void chamaTelaSobre() {
 		setContentView(R.layout.sobre);
+		inicializaObjetos();
+		listeners();
+
+	}
+
+	private void chamaTelaSair() {
+		Intent intent = new Intent(Intent.ACTION_MAIN);
+		intent.addCategory(Intent.CATEGORY_HOME);
+		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		startActivity(intent);
+	}
+
+	private void mudarFonte(TextView tv, String fonte) {
+		// seta a fonte para o TextView
+		Typeface type = Typeface.createFromAsset(getAssets(), fonte);
+		tv.setTypeface(type);
+	}
+
+	private void chamaTelaResultado() {
+		setContentView(R.layout.resultado);
 		inicializaObjetos();
 		listeners();
 
@@ -75,93 +93,49 @@ public class MainActivity extends Activity {
 		try {
 			// INICIALIZA OBJETOS DA TELA INICIAL
 			btCalcular = (ImageButton) findViewById(R.id.btCalcular);
-			btConfigurar = (ImageButton) findViewById(R.id.btConfigurar);
 			btSobre = (ImageButton) findViewById(R.id.btSobre);
+			btSair = (ImageButton) findViewById(R.id.btSair);
 		} catch (Exception e) {
 
 		}
 		try {
-			// INICIALIZA OBJETOS DA TELA CONFIGURAÇÃO
-			tvTituloConfig = (TextView) findViewById(R.id.tvTituloConfig);
-			tvQuantidade = (TextView) findViewById(R.id.tvQuantidade);
-			rgNotas = (RadioGroup) findViewById(R.id.rgQuantidadeNotas);
-			rbUma = (RadioButton) findViewById(R.id.rbUma);
-			rbDuas = (RadioButton) findViewById(R.id.rbDuas);
-			rbTres = (RadioButton) findViewById(R.id.rbTres);
-			rbQuatro = (RadioButton) findViewById(R.id.rbQuatro);
-			quantidadeDeNotas();
-
-			tvMediaGeral = (TextView) findViewById(R.id.tvMedia);
-			rgMediaGeralAdotada = (RadioGroup) findViewById(R.id.rgMediaGeralAdotada);
-			rbMediaSete = (RadioButton) findViewById(R.id.rbMediaSete);
-			rbMediaOutra = (RadioButton) findViewById(R.id.rbMediaOutra);
-			mediaGeralAdotada();
-
-			System.out.println(mediaGeral);
-			btConfigVoltar = (Button) findViewById(R.id.btConfigVoltar);
-			btConfigSalvar = (Button) findViewById(R.id.btConfigSalvar);
+			// INICIALIZA OBJETOS DA TELA CALCULAR
+			tvTituloCalcular = (TextView) findViewById(R.id.tvTituloCalcular);
+			mudarFonte(tvTituloCalcular, "fonts/vtks_giz.ttf");
+			tvTituloCalcular.setTextSize(50);
+			tvInformeMedia = (TextView) findViewById(R.id.tvInformeMedia);
+			etDigiteMedia = (EditText) findViewById(R.id.etDigiteMedia);
+			tvObservacao = (TextView) findViewById(R.id.tvObsevacao);
+			btCalcCalc = (ImageButton) findViewById(R.id.btCalcular);
+			btVoltar = (ImageButton) findViewById(R.id.btVoltar);
 		} catch (Exception e) {
 
 		}
 		try {
 			// INICIALIZA OBJETOS DA TELA SOBRE
 			tvTituloSobre = (TextView) findViewById(R.id.tvTituloSobre);
+			mudarFonte(tvTituloSobre, "fonts/vtks_giz.ttf");
+			tvTituloSobre.setTextSize(50);
 			tvDescricao = (TextView) findViewById(R.id.tvDescricao);
-			tvQuantidadeSobre = (TextView) findViewById(R.id.tvQuantidadeSobre);
-			tvComoConfigurar = (TextView) findViewById(R.id.tvComoConfigurar);
-			tvDescricaoConfiguracao = (TextView) findViewById(R.id.tvDescricaoConfiguracao);
-			tvObterResult = (TextView) findViewById(R.id.tvObterResult);
+			tvConheca = (TextView) findViewById(R.id.tvConheca);
 			tvDescricaoResult = (TextView) findViewById(R.id.tvDescricaoResult);
-			btSobreVoltar = (Button) findViewById(R.id.btVoltar);
+			btSobreVoltar = (ImageButton) findViewById(R.id.btVoltar);
 		} catch (Exception e) {
 
 		}
-	}
+		try {
+			// INICIALIZA OBJETOS DA TELA RESULTADO
+			tvTituloResultado = (TextView) findViewById(R.id.tvTituloResultado);
+			mudarFonte(tvTituloResultado, "fonts/vtks_giz.ttf");
+			tvTituloResultado.setTextSize(50);
+			tvSeuResultado = (TextView) findViewById(R.id.tvSeuResultado);
+			tvValorResultado = (TextView) findViewById(R.id.tvValorResultado);
+			tvValorResultado.setText(resultado());
+			tvNaFinal = (TextView) findViewById(R.id.tvNaFinal);
+			btNovoCalculo = (ImageButton) findViewById(R.id.btNovoCalculo);
+		} catch (Exception e) {
 
-	/**
-	 * Método que recebe a configuração do usuário para a quantidade de notas a
-	 * partir da interface.
-	 */
-	private void quantidadeDeNotas() {
-		rgNotas.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-
-			public void onCheckedChanged(RadioGroup grupo, int opcaoID) {
-				if (rbUma.isChecked()) {
-					quantidadeDeNotas = 1;
-				} else if (rbDuas.isChecked()) {
-					quantidadeDeNotas = 2;
-				} else if (rbTres.isChecked()) {
-					quantidadeDeNotas = 3;
-				} else if (rbQuatro.isChecked()) {
-					quantidadeDeNotas = 4;
-				}
-
-			}
-		});
-	}
-
-	/**
-	 * Método que captura a média Geral Adotada que o usuário está configurando
-	 * neste momento.
-	 */
-	private void mediaGeralAdotada() {
-		rgMediaGeralAdotada
-				.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-
-					public void onCheckedChanged(RadioGroup grupo, int opcaoID) {
-						if (rbMediaSete.isChecked()) {
-							mediaGeral = 7;
-						} else if (rbMediaOutra.isChecked()) {
-							etMediaOutra = (EditText) findViewById(R.id.etOutra);
-							String media = etMediaOutra.getText().toString();
-							if (media.isEmpty()) {
-								mediaGeral = 7;
-							} else {
-								mediaGeral = Integer.parseInt(media);
-							}
-						}
-					}
-				});
+		}
 
 	}
 
@@ -194,19 +168,16 @@ public class MainActivity extends Activity {
 	 * trycatch's diferentes.
 	 */
 	private void listeners() {
+		// LISTENERS DA TELA INICIAL
 		try {
-			btConfigurar.setOnClickListener(new View.OnClickListener() {
+			btCalcular.setOnClickListener(new View.OnClickListener() {
 
 				@Override
 				public void onClick(View arg0) {
-					chamaTelaConfigurar();
+					chamaTelaCalcular();
 
 				}
 			});
-		} catch (Exception e) {
-
-		}
-		try {
 			btSobre.setOnClickListener(new View.OnClickListener() {
 
 				@Override
@@ -215,24 +186,32 @@ public class MainActivity extends Activity {
 
 				}
 			});
+			btSair.setOnClickListener(new View.OnClickListener() {
+
+				@Override
+				public void onClick(View arg0) {
+					chamaTelaSair();
+
+				}
+			});
 		} catch (Exception e) {
 
 		}
+
+		// LISTENERS DA TELA CALCULAR
 		try {
-			btConfigVoltar.setOnClickListener(new View.OnClickListener() {
+			btCalcCalc.setOnClickListener(new View.OnClickListener() {
 
 				@Override
 				public void onClick(View arg0) {
-					chamaTelaInicial();
+					chamaTelaResultado();
 
 				}
 			});
-			btConfigSalvar.setOnClickListener(new View.OnClickListener() {
+			btVoltar.setOnClickListener(new View.OnClickListener() {
 
 				@Override
 				public void onClick(View arg0) {
-					mensagem("Configurações Salvas",
-							"Suas configurações foram Salvas com sucesso!");
 					chamaTelaInicial();
 
 				}
@@ -240,6 +219,21 @@ public class MainActivity extends Activity {
 		} catch (Exception e) {
 
 		}
+
+		// LISTENERS DA TELA RESULTADO
+		try {
+			btNovoCalculo.setOnClickListener(new View.OnClickListener() {
+
+				@Override
+				public void onClick(View arg0) {
+					chamaTelaCalcular();
+				}
+			});
+		} catch (Exception e) {
+
+		}
+
+		// LISTENERS DA TELA SOBRE
 		try {
 			btSobreVoltar.setOnClickListener(new View.OnClickListener() {
 
@@ -252,5 +246,54 @@ public class MainActivity extends Activity {
 
 		}
 
+	}
+
+	/**
+	 * Método que captura a nota da média inserida pelo usuário e transforma
+	 * este valor em um Float para assim efetuar o cálculo de forma correta,
+	 * retornando uma String com o valor formatado e reduzido em apenas duas
+	 * casas decimais.
+	 * 
+	 * @return
+	 */
+	private String resultado() {
+		float x, y, z = 0, result;
+		String mediaInserida = etDigiteMedia.getText().toString();
+		if (mediaInserida.equals("")) {
+			return "0";
+		}
+		result = Float.parseFloat(mediaInserida);
+		if (!verificaValor(result)) {
+			chamaTelaCalcular();
+		} else {
+			x = result * 6;
+			y = 50 - x;
+			z = y / 4;
+		}
+		DecimalFormat df = new DecimalFormat();
+		df.setMinimumFractionDigits(1);
+		return df.format(z);
+	}
+
+	/**
+	 * Este método faz uma verificação no valor da nota final já calculada para
+	 * exibir ao usuário a mensagem referente a esta nota.
+	 * 
+	 * @param valor
+	 * @return
+	 */
+	private boolean verificaValor(Float valor) {
+		if (valor > 3.9 && valor < 7.0) {
+			return true;
+		} else if (valor > 6.9 && valor < 10.1) {
+			mensagem("OPS!",
+					"Ei, você não precisa fazer Prova Final. Alegre-se!");
+			return false;
+		} else if (valor < 4.0 && valor > 0) {
+			mensagem("OPS!",
+					"Média insuficiente para realizar Prova Final! Estude mais no próximo período.");
+			return false;
+		}
+		return false;
 	}
 }
