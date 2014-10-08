@@ -8,48 +8,35 @@
     
     <string name="calcular">Calcular</string>
     <string name="config">Configurar</string>
-    <string name="sobre">qNota</string>
+    <string name="sobre">Sobre</string>
     
-    <string name="titulo_config">CONFIGURAÇÃO</string>
-    <string name="quantidade">Quantidade de Avaliações</string>
-    <string name="uma">Uma nota</string>
-    <string name="duas">Duas notas</string>
-    <string name="tres">Três notas</string>
-    <string name="quatro">Quatro notas</string>
-    <string name="media">Média Geral adotada</string>
-    <string name="sete">Média 7</string>
-    <string name="outra">Outra:</string>
+    <string name="titulo_calcular">CALCULAR</string>
+    <string name="media">Informe sua média parcial:</string>
+    <string name="observacao">*Separe os números decimais com ponto(.) Ex. 6.3</string>
     <string name="digite">Digite aqui</string>
+    
+   	<string name="titulo_resultado">RESULTADO</string>
+   	<string name="seu_resultado">Você precisa tirar</string>
+   	<string name="na_final">na sua Prova Final!</string>
     
     <string name="salvar">Salvar</string>
     <string name="voltar">Voltar</string>
+    <string name="novo_calculo">Novo Cálculo</string>
     <string name="ok">OK</string>
     
-    <string name="conheca">Conheça o app qNota</string>
-    <string name="descricao">O app qNota foi desenvolvido pelos 
+	<string name="descricao_obter_resultado">Uma das coisas desesperadoras 
+	    em ser um aluno é ficar se perguntando o quão bem você deve ir 
+	    em uma prova final para alcançar uma certa nota na disciplina. E
+	    para saber que nota você precisará tirar na final basta usar o seu mais novo app
+	    qNota. É de fácil utilização e o aluno só precisa digitar sua média
+	    na disciplina para obter o valor correspondente ao que deve tirar na sua prova final.
+	    O app qNota está em fase de aprovação, sendo esta a versão 1.0.
+	    Não esqueça de avaliar e comentar sobre este aplicativo na PlayStore.</string>
+	    
+	<string name="conheca">Desenvolvedores</string>
+    <string name="descricao">O qNota foi desenvolvido pelos 
         alunos Deivid Azevedo e Widancássio Galindo, graduandos do 5º 
         período do curso de Análise e Desenvolvimento de 
         Sistemas, do Instituto Federal de Educação, Ciência e 
-        Tecnologia da Paraíba - IFPB, campus Monteiro. A princípio o
-        aplicativo tem como principal função ajudar estudantes
-        a realizarem de forma rápida e fácil o cálculo de quanto
-        necessitam alcançar em uma eventual prova final para obter aprovação
-        no período.</string>
-    <string name="como_conf">Como Configurar o app</string>
-	<string name="descricao_config">O aplicativo qNota já inicia com sua
-	    configuração prévia. Porém, algumas instituições de ensino adotam
-	    formas diferentes de aprovação no ano letivo, ou muitas disciplinas
-	    que exigem carga horária diferente de outras, mudando assim a
-	    quantidade de avaliações necessárias. Desse modo o usuário do qNota
-	    poderá configurar o aplicativo de acordo com estas especificações,
-	    podendo informar a quantidade de avaliações feitas, para que o
-	    aplicativo calcule a média do estudante na disciplina e assim
-	    realizar o cálculo da nota na avaliação final.</string>
-	<string name="obter_resultado">Como Obter o Resultado</string>
-	<string name="descricao_obter_resultado">Obter o resultado final do cálculo é muito simples: o
-	    estudante informa todas as notas obtidas nos exames/avaliações e então
-	    o aplicativo informará a nota necessária na realização da
-	    prova final. Fácil né? É bom não estar na final, mas caso 
-	    esteja, utilize o qNota para saber quanto deve tirar na prova. 
-	    Keep Calm and ESTUDE!</string>
+        Tecnologia da Paraíba - IFPB, campus Monteiro.</string>
 </resources>
