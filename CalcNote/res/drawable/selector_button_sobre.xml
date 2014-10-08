@@ -2,8 +2,8 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- pressionado -->
-    <item android:drawable="@drawable/btqnota_on" android:state_pressed="true"/>
+    <item android:drawable="@drawable/sobre_onn" android:state_pressed="true"/>
     <!-- normal -->
-    <item android:drawable="@drawable/btqnota"/>
+    <item android:drawable="@drawable/sobre_off"/>
 
 </selector>

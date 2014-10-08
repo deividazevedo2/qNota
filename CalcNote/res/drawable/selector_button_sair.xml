@@ -2,8 +2,8 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- pressionado -->
-    <item android:drawable="@drawable/btconfigurar_on" android:state_pressed="true"/>
+    <item android:drawable="@drawable/sair_onn" android:state_pressed="true"/>
     <!-- normal -->
-    <item android:drawable="@drawable/btconfigurar"/>
+    <item android:drawable="@drawable/sair_off"/>
 
 </selector>
