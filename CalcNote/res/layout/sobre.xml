@@ -1,72 +1,27 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background2" >
+    android:background="@drawable/background" >
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="306dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:context=".MainActivity" >
 
         <TextView
             android:id="@+id/tvTituloSobre"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
             android:gravity="center"
             android:text="@string/sobre"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <TextView
-            android:id="@+id/tvQuantidadeSobre"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:text="@string/conheca"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <TextView
-            android:id="@+id/tvDescricao"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_gravity="center_horizontal|center"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:text="@string/descricao" />
-
-        <TextView
-            android:id="@+id/tvComoConfigurar"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:text="@string/como_conf"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <TextView
-            android:id="@+id/tvDescricaoConfiguracao"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_gravity="center_horizontal|center"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:text="@string/descricao_config" />
-
-        <TextView
-            android:id="@+id/tvObterResult"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:text="@string/obter_resultado"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFE4B5"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvDescricaoResult"
@@ -77,15 +32,41 @@
             android:layout_marginRight="8dp"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="@string/descricao_obter_resultado" />
+            android:text="@string/descricao_obter_resultado"
+            android:textColor="#FFFFFF" />
 
-        <Button
-            android:id="@+id/btVoltar"
+        <TextView
+            android:id="@+id/tvConheca"
             android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_horizontal|center"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/conheca"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvDescricao"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_horizontal|center"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/descricao"
+            android:textColor="#FFFFFF" />
+
+        <ImageButton
+            android:id="@+id/btVoltar"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:text="@string/voltar" />
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/selector_button_voltar"
+            android:contentDescription="@string/app_name" />
     </LinearLayout>
 
 </ScrollView>
