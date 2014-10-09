@@ -12,6 +12,7 @@ import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -19,6 +20,7 @@ public class MainActivity extends Activity {
 			tvObservacao, tvConheca, tvDescricaoResult, tvTituloResultado,
 			tvSeuResultado, tvValorResultado, tvNaFinal;
 	EditText etDigiteMedia;
+	boolean telaCalcular = true;
 	ImageButton btCalcular, btSobre, btSair, btCalcCalc, btSobreVoltar,
 			btNovoCalculo, btVoltar;
 
@@ -26,6 +28,8 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		Toast.makeText(MainActivity.this, "Bem-vindo", Toast.LENGTH_LONG)
+				.show();
 		chamaTelaInicial();
 	}
 
@@ -35,7 +39,7 @@ public class MainActivity extends Activity {
 	 */
 	private void chamaTelaInicial() {
 		setContentView(R.layout.activity_main);
-		inicializaObjetos();
+		inicializaObjetosDaTelaInicial();
 		listeners();
 	}
 
@@ -45,23 +49,39 @@ public class MainActivity extends Activity {
 	 */
 	private void chamaTelaCalcular() {
 		setContentView(R.layout.calcular);
-		inicializaObjetos();
+		inicializaObjetosDaTelaCalcular();
 		listeners();
 
 	}
 
 	/**
-	 * Método que chama a tela configurar, inicializa os objetos desta tela e as
+	 * Método que chama a tela Sobre, inicializa os objetos desta tela e as
 	 * capturas de botões.
 	 */
 	private void chamaTelaSobre() {
 		setContentView(R.layout.sobre);
-		inicializaObjetos();
+		inicializaObjetosDaTelaSobre();
 		listeners();
 
 	}
 
+	/**
+	 * Método que chama a tela Resultado, inicializa os objetos desta tela e as
+	 * capturas de botões.
+	 */
+	private void chamaTelaResultado() {
+		setContentView(R.layout.resultado);
+		inicializaObjetosDaTelaResultado();
+		listeners();
+
+	}
+
+	/**
+	 * Método para chamar o comando Sair.
+	 */
 	private void chamaTelaSair() {
+		Toast.makeText(MainActivity.this, "Saindo...", Toast.LENGTH_SHORT)
+				.show();
 		Intent intent = new Intent(Intent.ACTION_MAIN);
 		intent.addCategory(Intent.CATEGORY_HOME);
 		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -74,21 +94,7 @@ public class MainActivity extends Activity {
 		tv.setTypeface(type);
 	}
 
-	private void chamaTelaResultado() {
-		setContentView(R.layout.resultado);
-		inicializaObjetos();
-		listeners();
-
-	}
-
-	/**
-	 * Neste método todos os objetos são inicializados de acordo com a tela a
-	 * qual pertencem. É importante perceber que os botões referentes a tela
-	 * inicial estão dentro de um trycatch. Os objetos das outras telas estão
-	 * dentro de outro trycatch. É assim que deve continuar: cada tela e seus
-	 * respectivos botões devem estar em trycatch diferentes de outras telas.
-	 */
-	private void inicializaObjetos() {
+	private void inicializaObjetosDaTelaInicial() {
 
 		try {
 			// INICIALIZA OBJETOS DA TELA INICIAL
@@ -98,6 +104,9 @@ public class MainActivity extends Activity {
 		} catch (Exception e) {
 
 		}
+	}
+
+	private void inicializaObjetosDaTelaCalcular() {
 		try {
 			// INICIALIZA OBJETOS DA TELA CALCULAR
 			tvTituloCalcular = (TextView) findViewById(R.id.tvTituloCalcular);
@@ -108,9 +117,15 @@ public class MainActivity extends Activity {
 			tvObservacao = (TextView) findViewById(R.id.tvObsevacao);
 			btCalcCalc = (ImageButton) findViewById(R.id.btCalcular);
 			btVoltar = (ImageButton) findViewById(R.id.btVoltar);
+			if (telaCalcular)
+				mensagem("", "Insira sua média no campo", "Entendi!");
 		} catch (Exception e) {
 
 		}
+
+	}
+
+	private void inicializaObjetosDaTelaSobre() {
 		try {
 			// INICIALIZA OBJETOS DA TELA SOBRE
 			tvTituloSobre = (TextView) findViewById(R.id.tvTituloSobre);
@@ -123,6 +138,10 @@ public class MainActivity extends Activity {
 		} catch (Exception e) {
 
 		}
+
+	}
+
+	private void inicializaObjetosDaTelaResultado() {
 		try {
 			// INICIALIZA OBJETOS DA TELA RESULTADO
 			tvTituloResultado = (TextView) findViewById(R.id.tvTituloResultado);
@@ -150,12 +169,12 @@ public class MainActivity extends Activity {
 	 * @param msg
 	 *            que irá ser exibida ao usuário
 	 */
-	private void mensagem(String titulo, String msg) {
+	private void mensagem(String titulo, String msg, String botao) {
 		AlertDialog.Builder mensagem = new AlertDialog.Builder(
 				MainActivity.this);
 		mensagem.setTitle(titulo);
 		mensagem.setMessage(msg);
-		mensagem.setNeutralButton("OK", null);
+		mensagem.setNeutralButton(botao, null);
 		mensagem.show();
 
 	}
@@ -272,6 +291,7 @@ public class MainActivity extends Activity {
 		}
 		DecimalFormat df = new DecimalFormat();
 		df.setMinimumFractionDigits(1);
+		telaCalcular = true;
 		return df.format(z);
 	}
 
@@ -284,16 +304,22 @@ public class MainActivity extends Activity {
 	 */
 	private boolean verificaValor(Float valor) {
 		if (valor > 3.9 && valor < 7.0) {
+			telaCalcular = true;
 			return true;
 		} else if (valor > 6.9 && valor < 10.1) {
-			mensagem("OPS!",
-					"Ei, você não precisa fazer Prova Final. Alegre-se!");
+			mensagem("UHU!",
+					"Aprovado por média. Parabéns!", "THANKS");
+			telaCalcular = false;
 			return false;
 		} else if (valor < 4.0 && valor > 0) {
-			mensagem("OPS!",
-					"Média insuficiente para realizar Prova Final! Estude mais no próximo período.");
+			mensagem(
+					"OPS!",
+					"Média insuficiente para realizar Prova Final! Estude mais no próximo período.",
+					"OK");
+			telaCalcular = false;
 			return false;
 		}
+		telaCalcular = false;
 		return false;
 	}
 }
