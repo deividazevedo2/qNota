@@ -88,12 +88,24 @@ public class MainActivity extends Activity {
 		startActivity(intent);
 	}
 
-	private void mudarFonte(TextView tv, String fonte) {
+	/**
+	 * Método utilizado apenas para alterar a fonte utilizada nos titulos de
+	 * cada tela. Este método recebe o TextView da tela .xml e a fonte utilzada.
+	 * 
+	 * @param tv
+	 * @param fonte
+	 */
+	private void mudarFonte(TextView tv) {
 		// seta a fonte para o TextView
-		Typeface type = Typeface.createFromAsset(getAssets(), fonte);
+		Typeface type = Typeface.createFromAsset(getAssets(),
+				"fonts/vtks_giz.ttf");
 		tv.setTypeface(type);
 	}
 
+	/**
+	 * Método para inicializar os objetos utilizados na tela inicial do
+	 * aplicativo.
+	 */
 	private void inicializaObjetosDaTelaInicial() {
 
 		try {
@@ -106,11 +118,15 @@ public class MainActivity extends Activity {
 		}
 	}
 
+	/**
+	 * Método para inicializar os objetos utilizados na tela calcular do
+	 * aplicativo.
+	 */
 	private void inicializaObjetosDaTelaCalcular() {
 		try {
 			// INICIALIZA OBJETOS DA TELA CALCULAR
 			tvTituloCalcular = (TextView) findViewById(R.id.tvTituloCalcular);
-			mudarFonte(tvTituloCalcular, "fonts/vtks_giz.ttf");
+			mudarFonte(tvTituloCalcular);
 			tvTituloCalcular.setTextSize(50);
 			tvInformeMedia = (TextView) findViewById(R.id.tvInformeMedia);
 			etDigiteMedia = (EditText) findViewById(R.id.etDigiteMedia);
@@ -125,11 +141,15 @@ public class MainActivity extends Activity {
 
 	}
 
+	/**
+	 * Método para inicializar os objetos utilizados na tela sobre do
+	 * aplicativo.
+	 */
 	private void inicializaObjetosDaTelaSobre() {
 		try {
 			// INICIALIZA OBJETOS DA TELA SOBRE
 			tvTituloSobre = (TextView) findViewById(R.id.tvTituloSobre);
-			mudarFonte(tvTituloSobre, "fonts/vtks_giz.ttf");
+			mudarFonte(tvTituloSobre);
 			tvTituloSobre.setTextSize(50);
 			tvDescricao = (TextView) findViewById(R.id.tvDescricao);
 			tvConheca = (TextView) findViewById(R.id.tvConheca);
@@ -141,11 +161,15 @@ public class MainActivity extends Activity {
 
 	}
 
+	/**
+	 * Método para inicializar os objetos utilizados na tela resultado do
+	 * aplicativo.
+	 */
 	private void inicializaObjetosDaTelaResultado() {
 		try {
 			// INICIALIZA OBJETOS DA TELA RESULTADO
 			tvTituloResultado = (TextView) findViewById(R.id.tvTituloResultado);
-			mudarFonte(tvTituloResultado, "fonts/vtks_giz.ttf");
+			mudarFonte(tvTituloResultado);
 			tvTituloResultado.setTextSize(50);
 			tvSeuResultado = (TextView) findViewById(R.id.tvSeuResultado);
 			tvValorResultado = (TextView) findViewById(R.id.tvValorResultado);
@@ -307,8 +331,7 @@ public class MainActivity extends Activity {
 			telaCalcular = true;
 			return true;
 		} else if (valor > 6.9 && valor < 10.1) {
-			mensagem("UHU!",
-					"Aprovado por média. Parabéns!", "THANKS");
+			mensagem("UHU!", "Aprovado por média. Parabéns!", "THANKS");
 			telaCalcular = false;
 			return false;
 		} else if (valor < 4.0 && valor > 0) {
