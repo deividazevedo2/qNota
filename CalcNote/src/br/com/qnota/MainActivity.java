@@ -5,6 +5,7 @@ import java.text.DecimalFormat;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
@@ -35,6 +36,10 @@ public class MainActivity extends Activity {
 
 	}
 
+	/**
+	 * Método para realizar uma transição de tela mais agradável na entrada e
+	 * saída do app.
+	 */
 	private void transicaoDeTela() {
 		overridePendingTransition(android.R.anim.slide_in_left,
 				android.R.anim.slide_out_right);
@@ -106,6 +111,9 @@ public class MainActivity extends Activity {
 		Typeface type = Typeface.createFromAsset(getAssets(),
 				"fonts/vtks_giz.ttf");
 		tv.setTypeface(type);
+		// Esta linha serve para colocar sombra preta no textView
+		tv.setShadowLayer(3, 1, 1, Color.BLACK);
+		tv.setTextSize(50); // tamanho do text textView
 	}
 
 	/**
@@ -133,7 +141,6 @@ public class MainActivity extends Activity {
 			// INICIALIZA OBJETOS DA TELA CALCULAR
 			tvTituloCalcular = (TextView) findViewById(R.id.tvTituloCalcular);
 			mudarFonte(tvTituloCalcular);
-			tvTituloCalcular.setTextSize(50);
 			tvInformeMedia = (TextView) findViewById(R.id.tvInformeMedia);
 			etDigiteMedia = (EditText) findViewById(R.id.etDigiteMedia);
 			tvObservacao = (TextView) findViewById(R.id.tvObsevacao);
@@ -156,7 +163,6 @@ public class MainActivity extends Activity {
 			// INICIALIZA OBJETOS DA TELA SOBRE
 			tvTituloSobre = (TextView) findViewById(R.id.tvTituloSobre);
 			mudarFonte(tvTituloSobre);
-			tvTituloSobre.setTextSize(50);
 			tvDescricao = (TextView) findViewById(R.id.tvDescricao);
 			tvConheca = (TextView) findViewById(R.id.tvConheca);
 			tvDescricaoResult = (TextView) findViewById(R.id.tvDescricaoResult);
@@ -176,7 +182,6 @@ public class MainActivity extends Activity {
 			// INICIALIZA OBJETOS DA TELA RESULTADO
 			tvTituloResultado = (TextView) findViewById(R.id.tvTituloResultado);
 			mudarFonte(tvTituloResultado);
-			tvTituloResultado.setTextSize(50);
 			tvSeuResultado = (TextView) findViewById(R.id.tvSeuResultado);
 			tvValorResultado = (TextView) findViewById(R.id.tvValorResultado);
 			tvValorResultado.setText(resultado());
