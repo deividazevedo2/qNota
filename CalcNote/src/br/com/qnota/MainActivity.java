@@ -31,6 +31,14 @@ public class MainActivity extends Activity {
 		Toast.makeText(MainActivity.this, "Bem-vindo", Toast.LENGTH_LONG)
 				.show();
 		chamaTelaInicial();
+		transicaoDeTela();
+
+	}
+
+	private void transicaoDeTela() {
+		overridePendingTransition(android.R.anim.slide_in_left,
+				android.R.anim.slide_out_right);
+
 	}
 
 	/**
@@ -51,7 +59,6 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.calcular);
 		inicializaObjetosDaTelaCalcular();
 		listeners();
-
 	}
 
 	/**
@@ -62,7 +69,6 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.sobre);
 		inicializaObjetosDaTelaSobre();
 		listeners();
-
 	}
 
 	/**
@@ -73,7 +79,6 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.resultado);
 		inicializaObjetosDaTelaResultado();
 		listeners();
-
 	}
 
 	/**
@@ -86,6 +91,7 @@ public class MainActivity extends Activity {
 		intent.addCategory(Intent.CATEGORY_HOME);
 		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		startActivity(intent);
+		transicaoDeTela();
 	}
 
 	/**

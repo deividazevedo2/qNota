@@ -14,11 +14,12 @@
         <TextView
             android:id="@+id/tvTituloSobre"
             android:layout_width="fill_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/sobre"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#FFE4B5" />
+            android:textColor="#FFE4B5"
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/tvDescricaoResult"
