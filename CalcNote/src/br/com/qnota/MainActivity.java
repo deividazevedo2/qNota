@@ -314,7 +314,7 @@ public class MainActivity extends Activity {
 		float x, y, z = 0, result;
 		String mediaInserida = etDigiteMedia.getText().toString();
 		if (mediaInserida.equals("")) {
-			return "0";
+			chamaTelaCalcular();
 		}
 		result = Float.parseFloat(mediaInserida);
 		if (!verificaValor(result)) {
