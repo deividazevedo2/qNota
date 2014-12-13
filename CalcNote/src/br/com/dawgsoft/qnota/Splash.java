@@ -1,6 +1,6 @@
 package br.com.dawgsoft.qnota;
 
-import br.com.qnota.R;
+import br.com.dawgsoft.qnota.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
