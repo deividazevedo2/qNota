@@ -2,7 +2,7 @@ package br.com.qnota;
 
 import java.text.DecimalFormat;
 
-import br.com.qnota.R;
+import br.com.dawgsoft.qnota.R;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -340,7 +340,7 @@ public class MainActivity extends Activity {
 	 * @return
 	 */
 	private boolean verificaValor(Float valor) {
-		if (valor > 4.0 && valor < 7.0) {
+		if (valor >= 4.0 && valor < 7.0) {
 			telaCalcular = true;
 			return true;
 		} else if (valor > 6.9 && valor < 10.1) {
